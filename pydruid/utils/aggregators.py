@@ -27,11 +27,11 @@ def doublesum(raw_metric):
 
 
 def min(raw_metric):
-    return {"type": "min", "fieldName": raw_metric}
+    return {"type": "longMin", "fieldName": raw_metric}
 
 
 def max(raw_metric):
-    return {"type": "max", "fieldName": raw_metric}
+    return {"type": "longMax", "fieldName": raw_metric}
 
 
 def count(raw_metric):
