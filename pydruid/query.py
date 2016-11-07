@@ -238,8 +238,9 @@ class QueryBuilder(object):
         :rtype: Query
         """
         query_dict = {'queryType': query_type}
-
         for key, val in six.iteritems(args):
+            if val is None:
+                continue
             if key == 'aggregations':
                 query_dict[key] = build_aggregators(val)
             elif key == 'post_aggregations':

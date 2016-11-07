@@ -76,6 +76,8 @@ class Filter:
 
     @staticmethod
     def build_filter(filter_obj):
+        if filter_obj is None:
+            return None
         filter = filter_obj.filter['filter']
         if filter['type'] in ['and', 'or']:
             filter = filter.copy()  # make a copy so we don't overwrite `fields`

@@ -388,6 +388,7 @@ class PyDruid(BaseDruidClient):
 
     def _post(self, query):
         try:
+            #print('QUERY DEBUG: %s' % json.dumps(query.query_dict, indent=4))
             headers, querystr, url = self._prepare_url_headers_and_body(query)
             req = urllib.request.Request(url, querystr, headers)
             res = urllib.request.urlopen(req)
