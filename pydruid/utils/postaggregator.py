@@ -18,12 +18,13 @@ from __future__ import division
 import six
 
 
-class Postaggregator:
+class Postaggregator(dict):
     def __init__(self, fn, fields, name):
         self.post_aggregator = {'type': 'arithmetic',
                                 'name': name,
                                 'fn': fn,
                                 'fields': fields}
+        dict.__init__(self, self.post_aggregator)
         self.name = name
 
     def __mul__(self, other):

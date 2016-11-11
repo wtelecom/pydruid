@@ -13,15 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from json import JSONEncoder
 try:
     import simplejson as json
 except ImportError:
     import json
 
 
-class Filter:
+class Filter(dict):
     def __init__(self, **args):
-
+        dict.__init__(self, **args)
         if 'type' not in args.keys():
             self.filter = {"filter": {"type": "selector",
                                       "dimension": args["dimension"],
